@@ -45,7 +45,7 @@
   /* Cabeçalho */
   header {
     background-color: var(--primary-color);
-    padding: 1rem 0;
+    padding: 0.7rem 0;
     display: flex; 
     justify-content: center;
   }
@@ -179,7 +179,7 @@
   /* Rodapé fixado ao final (usando flex) */
   footer {
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: var(--secondary-color);
     color: var(--white);
   }

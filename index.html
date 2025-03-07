@@ -4,76 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chocomidia</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Seu CSS customizado -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <nav>
-        <div id="header">
-            <div class="flex-1">
-                <img src="/images/chocomidiaLogo.png" alt="">
-            </div>
-            <div class="flex-2">
-                <h1 class="logo">Chocomidia</h1>
-            </div>
-            <div class="flex-1">
-
-            </div>
+      <div id="header" class="d-flex">
+        <div class="flex-1">
+          <img src="/images/chocomidiaLogo.png" alt="Logo Chocomidia" class="">
         </div>
+        <div class="flex-2 text-center">
+          <h1 class="logo">Chocomidia</h1>
+        </div>
+        <div class="flex-1">
+          <!-- Espaço reservado para futuros elementos -->
+        </div>
+      </div>
     </nav>
   </header>
 
-  <main>
+  <main class="container my-3">
     <section class="calculadora">
-      <h2>Calcular Chocotone</h2>
-      <form>
-        <div class="input-group">
-          <label for="quantidade">Quant. de Chocotones:</label>
+      <h2 class="mb-4">Calcular Chocotone</h2>
+      <form class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="quantidade" class="form-label">Quant. de Chocotones:</label>
           <input 
             type="number" 
+            class="form-control" 
             id="quantidade" 
             name="quantidade" 
             placeholder="Ex: 5" 
-            min="1"
+            min="1" 
+            required
           />
+          <div class="invalid-feedback">
+            Por favor, insira a quantidade.
+          </div>
         </div>
         
-        <div class="input-group">
-            <label for="peso">Peso da massa (g):</label>
-            <select id="peso" name="peso">
-              <option value="180">180g</option>
-              <option value="440">440g</option>
-              <option value="700">700g</option>
-            </select>
+        <div class="mb-3">
+          <label for="peso" class="form-label">Peso da massa (g):</label>
+          <select id="peso" name="peso" class="form-select" required>
+            <option value="">Selecione...</option>
+            <option value="180">180g</option>
+            <option value="440">440g</option>
+            <option value="700">700g</option>
+          </select>
+          <div class="invalid-feedback">
+            Selecione o peso da massa.
+          </div>
         </div>
          
-        <div class="input-group">
-            <label for="raio">Valor do Raio</label>
-            <input 
-              type="number" 
-              id="raio" 
-              name="raio" 
-              placeholder="informe o valor do raio" 
-              min="0.01"
-            />
+        <div class="mb-3">
+          <label for="raio" class="form-label">Valor do Raio:</label>
+          <input 
+            type="number" 
+            class="form-control" 
+            id="raio" 
+            name="raio" 
+            placeholder="Informe o valor do raio" 
+            min="0.01" 
+            step="0.01" 
+            required
+          />
+          <div class="invalid-feedback">
+            Por favor, informe um valor válido.
+          </div>
         </div>
 
-        <div class="input-group">
-            <label for="altura">Altura (cm):</label>
-            <input 
-              type="number" 
-              id="altura" 
-              name="altura" 
-              placeholder="informe a altura em centímetros" 
-              min="0.01"
-            />
+        <div class="mb-3">
+          <label for="altura" class="form-label">Altura (cm):</label>
+          <input 
+            type="number" 
+            class="form-control" 
+            id="altura" 
+            name="altura" 
+            placeholder="Informe a altura em centímetros" 
+            min="0.01" 
+            step="0.01" 
+            required
+          />
+          <div class="invalid-feedback">
+            Por favor, informe um valor válido.
+          </div>
         </div>
 
-        <button type="button" class="btn-calcular">Calcular</button>
+        <button type="submit" class="btn-calcular">Calcular</button>
       </form>
     </section>
 
-    <section class="resultado">
+    <section class="resultado mt-4">
       <h3>Resultado</h3>
       <div class="resultado-item">
         <span>Quantidade de ingredientes:</span>
@@ -90,10 +114,32 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="text-center py-3  text-white">
     <p>Chocomidia&reg; - Todos os direitos reservados</p>
   </footer>
 
+  <!-- Bootstrap JS Bundle (inclui Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Script para ativar a validação do Bootstrap -->
+  <script>
+    (function () {
+      'use strict'
+      // Seleciona todos os formulários que queremos aplicar a validação customizada do Bootstrap
+      var forms = document.querySelectorAll('.needs-validation')
+      // Itera sobre eles e previne o envio se algum campo estiver inválido
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
