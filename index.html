@@ -1,12 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="index.js" defer></script>
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chocomidia</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+  <header>
+    <nav>
+        <div id="header">
+            <div class="flex-1">
+                <img src="/images/chocomidiaLogo.png" alt="">
+            </div>
+            <div class="flex-2">
+                <h1 class="logo">Chocomidia</h1>
+            </div>
+            <div class="flex-1">
+
+            </div>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="calculadora">
+      <h2>Calcular Chocotone</h2>
+      <form>
+        <div class="input-group">
+          <label for="quantidade">Quant. de Chocotones:</label>
+          <input 
+            type="number" 
+            id="quantidade" 
+            name="quantidade" 
+            placeholder="Ex: 5" 
+            min="1"
+          />
+        </div>
+        
+        <div class="input-group">
+            <label for="peso">Peso da massa (g):</label>
+            <select id="peso" name="peso">
+              <option value="180">180g</option>
+              <option value="440">440g</option>
+              <option value="700">700g</option>
+            </select>
+        </div>
+         
+        <div class="input-group">
+            <label for="raio">Valor do Raio</label>
+            <input 
+              type="number" 
+              id="raio" 
+              name="raio" 
+              placeholder="informe o valor do raio" 
+              min="0.01"
+            />
+        </div>
+
+        <div class="input-group">
+            <label for="altura">Altura (cm):</label>
+            <input 
+              type="number" 
+              id="altura" 
+              name="altura" 
+              placeholder="informe a altura em centímetros" 
+              min="0.01"
+            />
+        </div>
+
+        <button type="button" class="btn-calcular">Calcular</button>
+      </form>
+    </section>
+
+    <section class="resultado">
+      <h3>Resultado</h3>
+      <div class="resultado-item">
+        <span>Quantidade de ingredientes:</span>
+        <strong id="qtd-ingredientes">--</strong>
+      </div>
+      <div class="resultado-item">
+        <span>Espessura do Chocotone:</span>
+        <strong id="espessura-chocotone">--</strong>
+      </div>
+      <div class="resultado-item">
+        <span>Altura do Chocotone:</span>
+        <strong id="altura-chocotone">--</strong>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Chocomidia&reg; - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
