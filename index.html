@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chocomidia</title>
-  <!-- Bootstrap CSS -->
+  <script src="main.js" type="module" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Seu CSS customizado -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,7 +19,6 @@
           <h1 class="logo">Chocomidia</h1>
         </div>
         <div class="flex-1">
-          <!-- Espaço reservado para futuros elementos -->
         </div>
       </div>
     </nav>
@@ -60,7 +58,7 @@
         </div>
          
         <div class="mb-3">
-          <label for="raio" class="form-label">Valor do Raio:</label>
+          <label for="raio" class="form-label">Valor do Raio (cm):</label>
           <input 
             type="number" 
             class="form-control" 
@@ -95,6 +93,9 @@
 
         <button type="submit" class="btn-calcular">Calcular</button>
       </form>
+      <div id="retorno" >
+
+      </div>
     </section>
 
     <section class="resultado mt-4">
@@ -117,29 +118,6 @@
   <footer class="text-center py-3  text-white">
     <p>Chocomidia&reg; - Todos os direitos reservados</p>
   </footer>
-
-  <!-- Bootstrap JS Bundle (inclui Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- Script para ativar a validação do Bootstrap -->
-  <script>
-    (function () {
-      'use strict'
-      // Seleciona todos os formulários que queremos aplicar a validação customizada do Bootstrap
-      var forms = document.querySelectorAll('.needs-validation')
-      // Itera sobre eles e previne o envio se algum campo estiver inválido
-      Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-          form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-          }, false)
-        })
-    })()
-  </script>
-  <script src="script.js"></script>
 </body>
 </html>
