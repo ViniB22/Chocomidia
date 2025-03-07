@@ -9,9 +9,7 @@ function arredondar(valor) {
 }
 
 export default class Ingredientes{
-    constructor(raio,altura,tamanho,quantidade){
-      this.raio = raio
-      this.altura = altura
+    constructor(tamanho,quantidade){
       this.tamanho = tamanho
       this.quantidade = quantidade
     }
@@ -27,9 +25,11 @@ export default class Ingredientes{
        this.chocoMeioAmargo =  ((100 * this.tamanho) / 440) * this.quantidade.toFixed(2);
        this.sal =  ((2 * this.tamanho) / 440) * this.quantidade.toFixed(2);
         return this
-    
-
 }
+    calcularPreco(){
+        this.precoTotal = (this.fermentoBioSeco * 0.0744 ) + (this.farinhaDeTrigo *0.00397) + (this.leiteMorno * 0.00477) + (this.ovos * 0.7997) + (this.manteigaSemSal * 0.0675) + (this.acucar * 0.00485) + (this.essenciaBaun * 0.397) + (this.chocoMeioAmargo * 0.0298) + (this.sal * 0.00269)
+        return this
+    }
 }
 
 
