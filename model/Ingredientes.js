@@ -32,14 +32,3 @@ export default class Ingredientes{
     }
 }
 
-
-
-// //Farinha de trigo:	250
-// Fermento biológico seco: 	5
-// Leite morno: 	60
-// Ovos:	2
-// Manteiga sem sal:	50
-// Açúcar: 	70
-// Essência de baunilha:	5
-// Chocolate meio amargo picado ou gotas de chocolate: 	100
-// Sal: 	2
