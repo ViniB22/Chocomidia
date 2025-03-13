@@ -1,227 +1,249 @@
 /* Paleta de cores sugerida (você pode ajustar conforme preferir):
-   - Cor principal (tons de marrom): #6D4C41, #8D6E63
-   - Fundo claro (pastel): #F9F5F2
-   - Destaque: #FFD54F ou #FFC107
-   - Texto: #4E342E
+  - Cor principal (tons de marrom): #6D4C41, #8D6E63
+  - Fundo claro (pastel): #F9F5F2
+  - Destaque: #FFD54F ou #FFC107
+  - Texto: #4E342E
 */
 
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Variáveis de cores (opcional, caso queira usar variáveis) */
-  :root {
-    --bg-color: #F9F5F2;         /* Cor de fundo principal */
-    --primary-color: #6D4C41;    /* Tom principal de marrom */
-    --secondary-color: #8D6E63;  /* Tom secundário de marrom */
-    --accent-color: #FFD54F;     /* Cor de destaque (amarelo) */
-    --text-color: #4E342E;       /* Tom de texto principal */
-    --white: #FFFFFF;
-    --border-radius: 6px;
-    --transition: 0.3s ease;
-  }
-  
-  /* 
-    Garantindo que o footer fique no final da página:
-    - O html e body ocupam 100% da altura da tela.
-    - O body é transformado em flex container, e o main expande (flex: 1).
-  */
-  html, body {
-    height: 100%;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-  }
-  
-  /* Cabeçalho */
-  header {
-    background-color: var(--primary-color);
-    padding: 0.7rem 0;
-    display: flex; 
-    justify-content: center;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  nav img {
-    height: 60px; 
-  }
-  
-  #header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px; 
-  }
+/* Variáveis de cores (opcional, caso queira usar variáveis) */
+:root {
+  --bg-color: #F9F5F2;         /* Cor de fundo principal */
+  --primary-color: #6D4C41;    /* Tom principal de marrom */
+  --secondary-color: #8D6E63;  /* Tom secundário de marrom */
+  --accent-color: #FFD54F;     /* Cor de destaque (amarelo) */
+  --text-color: #4E342E;       /* Tom de texto principal */
+  --white: #FFFFFF;
+  --border-radius: 6px;
+  --transition: 0.3s ease;
+}
 
-  .flex-1 {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    min-width: 50px;
-    height: auto;
-  }
+/* 
+  Garantindo que o footer fique no final da página:
+  - O html e body ocupam 100% da altura da tela.
+  - O body é transformado em flex container, e o main expande (flex: 1).
+*/
+html, body {
+  height: 100%;
+}
 
-  .flex-2 {
-    flex: 3;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
 
-  .logo {
-    color: var(--white);
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  /* Container principal - ocupar o espaço disponível (flex: 1) */
+/* Cabeçalho */
+header {
+  background-color: var(--primary-color);
+  padding: 0.7rem 0;
+  display: flex; 
+  justify-content: center;
+}
+
+nav img {
+  height: 60px; 
+}
+
+#header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px; 
+}
+
+.flex-1 {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 50px;
+  height: auto;
+}
+
+.flex-2 {
+  flex: 3;
+}
+
+.logo {
+  color: var(--white);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Container principal - ocupar o espaço disponível (flex: 1) */
+main {
+  flex: 1;
+  max-width: 35%;
+  width: 35% !important;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Seção da calculadora */
+.calculadora {
+  width: 100%;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.calculadora h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+/* Grupos de input */
+.input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  outline: none;
+  transition: border var(--transition);
+}
+
+.input-group input:focus {
+  border-color: var(--accent-color);
+}
+
+/* Botão Calcular */
+.btn-calcular {
+  display: block;
+  width: 100%;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.btn-calcular:hover {
+  background-color: #FFC107; /* tom ligeiramente mais escuro/diferente */
+}
+
+/* Seção de resultado */
+.resultado {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.resultado h3 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.resultado-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.resultado-item span {
+  font-weight: bold;
+}
+
+/* Rodapé fixado ao final (usando flex) */
+footer {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+/* 
+  Responsividade para telas menores (mobile):
+  Exemplo simples para larguras até 600px.
+*/
+@media (max-width: 933px) {
   main {
-    flex: 1;
-    max-width: 35%;
-    width: 35% !important;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  
-  /* Seção da calculadora */
-  .calculadora {
-    width: 100%;
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .calculadora h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-  }
-  
-  /* Grupos de input */
-  .input-group {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-group label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  .input-group input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    outline: none;
-    transition: border var(--transition);
-  }
-  
-  .input-group input:focus {
-    border-color: var(--accent-color);
-  }
-  
-  /* Botão Calcular */
-  .btn-calcular {
-    display: block;
-    width: 100%;
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    font-size: 1rem;
-    padding: 0.75rem;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color var(--transition);
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-  
-  .btn-calcular:hover {
-    background-color: #FFC107; /* tom ligeiramente mais escuro/diferente */
-  }
-  
-  /* Seção de resultado */
-  .resultado {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-  }
-  
-  .resultado h3 {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-  }
-  
-  .resultado-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  .resultado-item span {
-    font-weight: bold;
-  }
-  
-  /* Rodapé fixado ao final (usando flex) */
-  footer {
-    text-align: center;
-    padding: 0.5rem;
-    background-color: var(--secondary-color);
-    color: var(--white);
-  }
-  
-  /* 
-    Responsividade para telas menores (mobile):
-    Exemplo simples para larguras até 600px.
-  */
-  @media (max-width: 933px) {
-    main {
-        flex: 1;
-        max-width: 65%;
-        width: 65% !important;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-  }
-  
-  @media (max-width: 507px) {
-    main {
-        flex: 1;
-        max-width: 85%;
-        width: 85% !important;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-  }
-  
-  /* Estilizando o <select> dentro da mesma .input-group */
+      flex: 1;
+      max-width: 65%;
+      width: 65% !important;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+}
+
+@media (max-width: 507px) {
+  main {
+      flex: 1;
+      max-width: 85%;
+      width: 85% !important;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+}
+
+/* Estilizando o <select> dentro da mesma .input-group */
 .input-group select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    outline: none;
-    transition: border var(--transition);
-    background-color: var(--white);
-    color: var(--text-color);
-    cursor: pointer;
-  }
-  
-  .input-group select:focus {
-    border-color: var(--accent-color);
-  }
-  
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  outline: none;
+  transition: border var(--transition);
+  background-color: var(--white);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.input-group select:focus {
+  border-color: var(--accent-color);
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.styled-table th, .styled-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.styled-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+.styled-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.styled-table .total-row {
+  background-color: #ddd;
+  font-weight: bold;
+}
