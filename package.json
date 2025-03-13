@@ -4,6 +4,7 @@
   "description": "Softwer que calcula ingredientes de um chocotone",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest",
     "build": "vite build"
   },

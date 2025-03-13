@@ -1,7 +1,7 @@
 import Chocotone from "../model/Chocotone.js"
 
 describe("Teste da Classe Chocotone", ()=>{
-    test("Testando o cálculo do volume do chocotonos", ()=>{
+    test("Testando o cálculo do volume do chocotones", ()=>{
 
         const raio = 2
         const altura = 3

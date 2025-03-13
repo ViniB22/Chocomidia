@@ -3,7 +3,6 @@ import Ingredientes from "./model/Ingredientes.js"
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
-    // Seleciona o formulário
     const form = document.querySelector(".needs-validation");
 
     form.addEventListener("submit", function (event) {
@@ -13,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             event.preventDefault(); // Evita o envio para processar os dados
             
-            
-            // Capturar os valores dos inputs
             const quantidade = parseInt(document.getElementById("quantidade").value);
             const peso = parseInt(document.getElementById("peso").value);
             const raio = parseFloat(document.getElementById("raio").value);
@@ -26,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const panetone = new Ingredientes(peso, quantidade)
             const lstaDeIngrediente = panetone.calcularIng()
+            const preço = panetone.calcularPreco()
 
-            const id_ingredientes = document.getElementById('qtd-ingredientes')
             console.log(lstaDeIngrediente)
-            id_ingredientes.innerHTML = "oi"
+            loadScreenItens(lstaDeIngrediente)
         }
 
         form.classList.add("was-validated");
@@ -46,14 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const retorno = document.getElementById("retorno");
     const form = document.querySelector(".needs-validation");
 
-    // Função para calcular raio e altura com base no peso da massa
     function calcularDimensoes(massa) {
         const densidade = 0.65; // g/cm³ (valor médio realista)
         const volume = massa / densidade; // Volume em cm³
 
         let raio, altura;
         
-        // Definindo valores aproximados baseados em medidas reais de chocotones
         if (massa == 180) {
             raio = 5; // cm
             altura = volume / (Math.PI * Math.pow(raio, 2));
@@ -68,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return { raio: raio.toFixed(2), altura: altura.toFixed(2) };
     }
 
-    // Função para resetar os campos de validação do Bootstrap
     function resetarValidacao() {
         raioInput.classList.remove("is-invalid", "is-valid");
         alturaInput.classList.remove("is-invalid", "is-valid");
@@ -77,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
         form.classList.remove("was-validated");
     }
 
-    // Evento para preencher automaticamente os valores de raio e altura ao alterar o peso
     pesoSelect.addEventListener("change", function () {
         resetarValidacao(); // Reseta validação ao alterar peso
         const massa = parseInt(pesoSelect.value);
@@ -92,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Evento para resetar validação ao alterar a quantidade de panetones
     quantidadeInput.addEventListener("input", function () {
         resetarValidacao();
     });
@@ -112,7 +104,6 @@ function validateDatePanetone(massa, raio, altura) {
         retorno.textContent = "Os valores de altura e raio não são válidos.";
         retorno.style.color = "red";
 
-        // Adiciona classes do Bootstrap para erro
         inputRaio.classList.add("is-invalid");
         inputAltura.classList.add("is-invalid");
 
@@ -122,7 +113,6 @@ function validateDatePanetone(massa, raio, altura) {
     retorno.textContent = "Cálculo concluído com sucesso!";
     retorno.style.color = "green";
 
-    // Remove erro e adiciona classe de sucesso
     inputRaio.classList.remove("is-invalid");
     inputRaio.classList.add("is-valid");
 
@@ -132,12 +122,40 @@ function validateDatePanetone(massa, raio, altura) {
     return false;
 }
 
-function arredondar(valor) {
-    let arredondado = Math.round(valor);
+function loadScreenItens(ingredientes) {
+    const id_ingredientes = document.getElementById('qtd-ingredientes');
+    
+    id_ingredientes.innerHTML = '';
 
-    if (arredondado === 0) {
-        return 1;
-    }
+    const table = document.createElement('table');
+    table.classList.add('styled-table');
 
-    return arredondado;
+    const header = document.createElement('tr');
+    header.innerHTML = '<th>Nome</th><th>Quantidade</th>';
+    table.appendChild(header);
+
+    Object.entries(ingredientes).forEach(([nome, qtd]) => {
+        if (['precoTotal', 'quantidade', 'tamanho'].includes(nome)) return;
+
+        const unidade = nome === 'ovos' ? 'unid.' : 'g';
+        const valorFormatado = Number.isInteger(qtd) ? qtd : qtd.toFixed(2);
+
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${formatIngredientName(nome)}</td><td>${valorFormatado} ${unidade}</td>`;
+        table.appendChild(row);
+    });
+
+    const totalRow = document.createElement('tr');
+    totalRow.innerHTML = `<td><strong>Total</strong></td><td><strong>R$ ${ingredientes.precoTotal.toFixed(2)}</strong></td>`;
+    totalRow.classList.add('total-row');
+    table.appendChild(totalRow);
+
+    id_ingredientes.appendChild(table);
+}
+
+function formatIngredientName(name) {
+    return name
+        .replace(/([A-Z])/g, ' $1') 
+        .replace(/^./, str => str.toUpperCase()) 
+        .trim();
 }
