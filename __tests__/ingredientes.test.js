@@ -1,4 +1,4 @@
-import Ingredientes from "../model/Ingredientes.js"
+import Ingredientes, {arredondar } from "../model/Ingredientes.js"
 
 describe("Teste da Classe Ingredientes", ()=>{
     test("Testando o preço total do chocotonos tamanho grandão: ", ()=>{
