@@ -4,12 +4,14 @@
   "description": "Softwer que calcula ingredientes de um chocotone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ViniB22/Chocomidia.git"
   },
+  "type":"module",
   "author": "Vinícius de Bona Ruas",
   "license": "ISC",
   "bugs": {
