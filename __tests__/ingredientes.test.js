@@ -16,9 +16,9 @@ describe("Teste da Classe Ingredientes", ()=>{
         const chocoMeioAmargo =  ((100 * tamanho) / 440) * quantidade.toFixed(2);
         const sal =  ((2 * tamanho) / 440) * quantidade.toFixed(2);
 
-        const preçoTotal = new PreçoTotal(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
+        const ingredientes = new Ingredientes(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
 
-        expect(preçoTotal.calcularIng()).toBeCloseTo(2)
+        expect(ingredientes.calcularIng()).toBeCloseTo(2)
     })
     test("Testando o preço total do chocotonos tamanho médio: ", ()=>{
 
@@ -35,9 +35,9 @@ describe("Teste da Classe Ingredientes", ()=>{
         const chocoMeioAmargo =  ((100 * tamanho) / 440) * quantidade.toFixed(2);
         const sal =  ((2 * tamanho) / 440) * quantidade.toFixed(2);
 
-        const preçoTotal = new PreçoTotal(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
+        const ingredientes = new Ingredientes(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
 
-        expect(preçoTotal.calcularIng()).toBeCloseTo(2)
+        expect(ingredientes.calcularIng()).toBeCloseTo(2)
     })
     test("Testando o preço total do chocotonos tamanho pequeno: ", ()=>{
 
@@ -54,9 +54,9 @@ describe("Teste da Classe Ingredientes", ()=>{
         const chocoMeioAmargo =  ((100 * tamanho) / 440) * quantidade.toFixed(2);
         const sal =  ((2 * tamanho) / 440) * quantidade.toFixed(2);
 
-        const preçoTotal = new PreçoTotal(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
+        const ingredientes = new Ingredientes(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
 
-        expect(preçoTotal.calcularIng()).toBeCloseTo(2)
+        expect(ingredientes.calcularIng()).toBeCloseTo(2)
     })
 
 })

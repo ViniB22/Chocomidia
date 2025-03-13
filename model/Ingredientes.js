@@ -28,18 +28,6 @@ export default class Ingredientes{
 }
     calcularPreco(){
         this.precoTotal = (this.fermentoBioSeco * 0.0744 ) + (this.farinhaDeTrigo *0.00397) + (this.leiteMorno * 0.00477) + (this.ovos * 0.7997) + (this.manteigaSemSal * 0.0675) + (this.acucar * 0.00485) + (this.essenciaBaun * 0.397) + (this.chocoMeioAmargo * 0.0298) + (this.sal * 0.00269)
-        return this
+        return this.precoTotal
     }
 }
-
-
-
-// //Farinha de trigo:	250
-// Fermento biológico seco: 	5
-// Leite morno: 	60
-// Ovos:	2
-// Manteiga sem sal:	50
-// Açúcar: 	70
-// Essência de baunilha:	5
-// Chocolate meio amargo picado ou gotas de chocolate: 	100
-// Sal: 	2
