@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const preço = panetone.calcularPreco()
 
             console.log(lstaDeIngrediente)
-            loadScreenItens(lstaDeIngrediente)
+            loadScreenItens(lstaDeIngrediente, peso)
         }
 
         form.classList.add("was-validated");
@@ -122,7 +122,7 @@ function validateDatePanetone(massa, raio, altura) {
     return false;
 }
 
-function loadScreenItens(ingredientes) {
+function loadScreenItens(ingredientes, massa) {
     const id_ingredientes = document.getElementById('qtd-ingredientes');
     
     id_ingredientes.innerHTML = '';
@@ -131,9 +131,8 @@ function loadScreenItens(ingredientes) {
     table.classList.add('styled-table');
 
     const div_volume = document.getElementById("volume")
-    const peso = parseInt(document.getElementById("peso").value);
     const densidade = 0.65; // g/cm³ (valor médio realista)
-    const volume = peso / densidade; // Volume em cm³
+    const volume = massa / densidade; // Volume em cm³
     div_volume.innerHTML = volume
     
     const header = document.createElement('tr');
