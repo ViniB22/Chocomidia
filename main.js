@@ -132,7 +132,7 @@ function loadScreenItens(ingredientes) {
 
     const divVolume = document.getElementById('volume');
     const densidade = 0.65; // g/cm³ (valor médio realista)
-    const volume = massa / densidade;
+    const volume = 400 / densidade;
     divVolume.innerHTML = volume
     
     const header = document.createElement('tr');
