@@ -130,6 +130,9 @@ function loadScreenItens(ingredientes) {
     const table = document.createElement('table');
     table.classList.add('styled-table');
 
+    const densidade = 0.65; // g/cm³ (valor médio realista)
+    const volume = massa / densidade;
+    
     const header = document.createElement('tr');
     header.innerHTML = '<th>Nome</th><th>Quantidade</th>';
     table.appendChild(header);
