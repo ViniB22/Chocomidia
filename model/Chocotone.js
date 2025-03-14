@@ -5,8 +5,7 @@ export default class Chocotone{
         this.tamanho = tamanho
     }
     calcularVolume(){
-        const densidade = 0.7
-        let volume = this.tamanho / densidade
+        let volume = Math.PI * this.raio * this.raio * this.altura
         return volume 
     }
 

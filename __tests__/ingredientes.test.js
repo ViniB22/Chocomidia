@@ -1,63 +1,30 @@
-import Ingredientes from "../model/Ingredientes.js"
+import Ingredientes, { arredondar } from "../model/Ingredientes.js";
 
-describe("Teste da Classe Ingredientes", ()=>{
-    test("Testando o preço total do chocotonos tamanho grandão: ", ()=>{
+describe("Testes da classe Ingredientes", () => {
 
-        const tamanho = 700
-        const quantidade = 500
+    test("Deve calcular os ingredientes corretamente", () => {
+        const ingredientes = new Ingredientes(440, 1);
+        ingredientes.calcularIng();
 
-        const fermentoBioSeco =  ((5 * tamanho) / 440) * quantidade.toFixed(2);
-        const farinhaDeTrigo = ((250 * tamanho) / 440) * quantidade.toFixed(2);
-        const leiteMorno =  Math.round(((60 * tamanho) / 440) * quantidade);
-        const ovos = arredondar(((2 * tamanho) / 440) * quantidade);
-        const manteigaSemSal =  ((50 * tamanho) / 440) * quantidade.toFixed(2);
-        const acucar =  ((70 * tamanho) / 440) * quantidade.toFixed(2);
-        const essenciaBaun =  Math.round(((5 * tamanho) / 440) * quantidade);
-        const chocoMeioAmargo =  ((100 * tamanho) / 440) * quantidade.toFixed(2);
-        const sal =  ((2 * tamanho) / 440) * quantidade.toFixed(2);
+        expect(ingredientes.fermentoBioSeco).toBeCloseTo(5);
+        expect(ingredientes.farinhaDeTrigo).toBeCloseTo(250);
+        expect(ingredientes.leiteMorno).toBeCloseTo(60);
+        expect(ingredientes.ovos).toBe(2);
+        expect(ingredientes.manteigaSemSal).toBeCloseTo(50);
+        expect(ingredientes.acucar).toBeCloseTo(70);
+        expect(ingredientes.essenciaBaun).toBeCloseTo(5);
+        expect(ingredientes.chocoMeioAmargo).toBeCloseTo(100);
+        expect(ingredientes.sal).toBeCloseTo(2);
+    });
 
-        const ingredientes = new Ingredientes(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
-
-        expect(ingredientes.calcularIng()).toBeCloseTo(2)
-    })
-    test("Testando o preço total do chocotonos tamanho médio: ", ()=>{
-
-        const tamanho = 440
-        const quantidade = 1200
-
-        const fermentoBioSeco =  ((5 * tamanho) / 440) * quantidade.toFixed(2);
-        const farinhaDeTrigo = ((250 * tamanho) / 440) * quantidade.toFixed(2);
-        const leiteMorno =  Math.round(((60 * tamanho) / 440) * quantidade);
-        const ovos = arredondar(((2 * tamanho) / 440) * quantidade);
-        const manteigaSemSal =  ((50 * tamanho) / 440) * quantidade.toFixed(2);
-        const acucar =  ((70 * tamanho) / 440) * quantidade.toFixed(2);
-        const essenciaBaun =  Math.round(((5 * tamanho) / 440) * quantidade);
-        const chocoMeioAmargo =  ((100 * tamanho) / 440) * quantidade.toFixed(2);
-        const sal =  ((2 * tamanho) / 440) * quantidade.toFixed(2);
-
-        const ingredientes = new Ingredientes(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
-
-        expect(ingredientes.calcularIng()).toBeCloseTo(2)
-    })
-    test("Testando o preço total do chocotonos tamanho pequeno: ", ()=>{
-
-        const tamanho = 180
-        const quantidade = 240
-
-        const fermentoBioSeco =  ((5 * tamanho) / 440) * quantidade.toFixed(2);
-        const farinhaDeTrigo = ((250 * tamanho) / 440) * quantidade.toFixed(2);
-        const leiteMorno =  Math.round(((60 * tamanho) / 440) * quantidade);
-        const ovos = arredondar(((2 * tamanho) / 440) * quantidade);
-        const manteigaSemSal =  ((50 * tamanho) / 440) * quantidade.toFixed(2);
-        const acucar =  ((70 * tamanho) / 440) * quantidade.toFixed(2);
-        const essenciaBaun =  Math.round(((5 * tamanho) / 440) * quantidade);
-        const chocoMeioAmargo =  ((100 * tamanho) / 440) * quantidade.toFixed(2);
-        const sal =  ((2 * tamanho) / 440) * quantidade.toFixed(2);
-
-        const ingredientes = new Ingredientes(fermentoBioSeco, farinhaDeTrigo, leiteMorno, ovos, manteigaSemSal, acucar, essenciaBaun, chocoMeioAmargo, sal)
-
-        expect(ingredientes.calcularIng()).toBeCloseTo(2)
-    })
-
-})
-
+    test("Deve calcular o preço total corretamente", () => {
+        const ingredientes = new Ingredientes(440, 1);
+        ingredientes.calcularIng();
+        const preco = ingredientes.calcularPreco();
+        
+        expect(preco).toBeCloseTo(
+            (5 * 0.0744) + (250 * 0.00397) + (60 * 0.00477) + (2 * 0.7997) + 
+            (50 * 0.0675) + (70 * 0.00485) + (5 * 0.397) + (100 * 0.0298) + (2 * 0.00269)
+        );
+    });
+});

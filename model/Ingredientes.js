@@ -1,4 +1,4 @@
-function arredondar(valor) {
+export function arredondar(valor) {
     let arredondado = Math.round(valor);
 
     if (arredondado === 0) {
